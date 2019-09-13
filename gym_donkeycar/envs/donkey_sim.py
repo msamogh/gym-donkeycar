@@ -116,7 +116,7 @@ class DonkeyUnitySimHandler(IMesgHandler):
         if msg_type in self.fns:
             self.fns[msg_type](message)
         else:
-            logger.warning(f'unknown message type {msg_type}')
+            logger.warning('unknown message type {}'.format(msg_type))
 
     ## ------- Env interface ---------- ##
 
@@ -250,8 +250,8 @@ class DonkeyUnitySimHandler(IMesgHandler):
 
     def queue_message(self, msg):
         if self.sock is None:
-            logger.debug(f'skiping: \n {msg}')
+            logger.debug('skiping: \n {}'.format(msg))
             return
 
-        logger.debug(f'sending \n {msg}')
+        logger.debug('sending \n {}'.format(msg))
         self.sock.queue_message(msg)
