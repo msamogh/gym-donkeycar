@@ -209,10 +209,10 @@ class DonkeyUnitySimHandler(IMesgHandler):
         if math.fabs(self.cte) > 2 * self.max_cte:
             pass
         elif math.fabs(self.cte) > self.max_cte:
-            logger.debug(f"game over: cte {self.cte}")
+            logger.debug("game over: cte {}".format(self.cte))
             self.over = True
         elif self.hit != "none":
-            logger.debug(f"game over: hit {self.hit}")
+            logger.debug("game over: hit {}".format(self.hit))
             self.over = True
 
     def on_scene_selection_ready(self, data):
@@ -226,7 +226,7 @@ class DonkeyUnitySimHandler(IMesgHandler):
     def on_recv_scene_names(self, data):
         if data:
             names = data['scene_names']
-            logger.debug(f"SceneNames: {names}")
+            logger.debug("SceneNames: {}".format(names))
             self.send_load_scene(names[self.iSceneToLoad])
 
     def send_control(self, steer, throttle):
